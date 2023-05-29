@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-
+import Cover from "../../Shared/Cover/Cover";
+import menuBg from '../../../assets/menu/banner3.jpg';
 
 const Menu = () => {
     return (
@@ -7,7 +8,7 @@ const Menu = () => {
             <Helmet>
                 <title>Bistro Boss | Menu</title>
             </Helmet>
-            This is menu
+            <Cover img={menuBg} title="Our Menu" subTitle="Would you like to try a dish?"/>
         </>
     );
 };
