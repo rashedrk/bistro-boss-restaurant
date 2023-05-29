@@ -4,7 +4,7 @@ import './FeaturedItem.css'
 
 const FeaturedItem = () => {
     return (
-        <div className="feature-item bg-fixed text-white ">
+        <div className="feature-item mb-12 bg-fixed text-white ">
             <div className="bg-black bg-opacity-60 pt-8 pb-12">
                 <SectionTitle
                     heading="Featured Item"
@@ -12,7 +12,7 @@ const FeaturedItem = () => {
                 >
                 </SectionTitle>
 
-                <div className="flex justify-center items-center px-36 pb-12 pt-10">
+                <div className="md:flex justify-center items-center px-36 pb-12 pt-10">
                     <div>
                         <img src={featured} alt="" />
                     </div>
