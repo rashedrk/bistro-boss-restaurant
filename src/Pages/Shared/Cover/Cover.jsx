@@ -7,8 +7,9 @@ const Cover = ({img, title, subTitle}) => {
             bgImage={img}
             bgImageAlt="the menu"
             strength={-200}
+            className='mb-10'
         >
-            <div className="hero h-[700px]">
+            <div className="hero h-[600px]">
                 
                 <div className="hero-content text-center text-neutral-content">
                     <div className=" bg-black bg-opacity-60 py-20 px-56">
