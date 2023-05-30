@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const navOptions = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/menu'>Menu</Link></li>
+        <li ><Link to='/'>Home</Link></li>
+        <li ><Link to='/menu'>Our Menu</Link></li>
+        <li ><Link to='/shop'>Our Shop</Link></li>
     </>
     return (
-        <div className="navbar fixed z-10 max-w-screen-xl text-white bg-opacity-20 bg-black">
+        <div className="navbar fixed z-10 max-w-screen-2xl uppercase font-bold text-white bg-opacity-40 bg-black">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
