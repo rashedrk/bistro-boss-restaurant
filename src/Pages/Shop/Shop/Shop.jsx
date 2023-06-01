@@ -6,11 +6,12 @@ import 'react-tabs/style/react-tabs.css';
 import useMenu from "../../../hooks/useMenu";
 import ShopTab from "../ShopTab/ShopTab";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Shop = () => {
-    const categories = ['salads','pizzas','soups','desserts','drinks']
-    const {category} = useParams();
+    const categories = ['salads', 'pizzas', 'soups', 'desserts', 'drinks']
+    const { category } = useParams();
     const initialCategory = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialCategory);
     const [menu] = useMenu();
@@ -22,6 +23,9 @@ const Shop = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Bistro Boss | Shop</title>
+            </Helmet>
             <Cover
                 img={shopBanner}
                 title="OUR SHOP"
@@ -61,7 +65,7 @@ const Shop = () => {
                         items={drinks}
                     ></ShopTab>
                 </TabPanel>
-                
+
             </Tabs>
         </div>
     );
