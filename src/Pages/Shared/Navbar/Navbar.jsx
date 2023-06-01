@@ -5,7 +5,7 @@ const Navbar = () => {
     const navOptions = <>
         <li ><Link to='/'>Home</Link></li>
         <li ><Link to='/menu'>Our Menu</Link></li>
-        <li ><Link to='/shop'>Our Shop</Link></li>
+        <li ><Link to='/shop/salads'>Our Shop</Link></li>
     </>
     return (
         <div className="navbar fixed z-10 max-w-screen-2xl uppercase font-bold text-white bg-opacity-40 bg-black">
