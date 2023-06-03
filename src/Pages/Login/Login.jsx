@@ -1,9 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
+
+    //captcha use
     useEffect(() => {
         loadCaptchaEnginge(6);
     });
@@ -15,7 +20,18 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        login(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire(
+                    'User login!',
+                    'successful',
+                    'success'
+                )
+
+            })
+            .catch(err => console.log(err))
     };
     const handleCaptcha = event => {
 
