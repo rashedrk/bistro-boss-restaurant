@@ -5,6 +5,8 @@ import Menu from '../Pages/Menu/Menu/Menu';
 import Shop from "../Pages/Shop/Shop/Shop";
 import Login from "../Pages/Login/Login";
 import Register from "../Register/Register";
+import Secret from "../Pages/Secret/Secret";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: 'signup',
                 element: <Register/>
+            },
+            {
+                path: 'secret',
+                element: <PrivateRoute><Secret/></PrivateRoute>
             }
         ]
     },

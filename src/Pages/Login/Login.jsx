@@ -1,12 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
 
 const Login = () => {
     const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     //captcha use
     useEffect(() => {
@@ -28,7 +31,8 @@ const Login = () => {
                     'User login!',
                     'successful',
                     'success'
-                )
+                );
+                navigate(from, { replace: true });
 
             })
             .catch(err => console.log(err))

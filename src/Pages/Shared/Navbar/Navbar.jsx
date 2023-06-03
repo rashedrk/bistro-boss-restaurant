@@ -14,6 +14,7 @@ const Navbar = () => {
         <li ><Link to='/'>Home</Link></li>
         <li ><Link to='/menu'>Our Menu</Link></li>
         <li ><Link to='/shop/salads'>Our Shop</Link></li>
+        <li ><Link to='/secret'>secret</Link></li>
         
         {
             user ? <li ><button onClick={handleLogout} >LOGOUT</button></li>
