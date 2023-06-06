@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { AiFillCalendar, AiFillHome, AiFillShopping, AiOutlineMenu } from 'react-icons/ai';
 import { IoWallet } from 'react-icons/io5';
 import { FaShoppingCart } from "react-icons/fa";
@@ -17,14 +17,14 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side bg-[#D1A054]">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                <ul className="menu p-4 w-80 h-full text-base-content">
                     {/* Sidebar content here */}
-                    <li><Link><AiFillHome /> User Home</Link></li>
-                    <li><Link><AiFillCalendar /> Reservation</Link></li>
-                    <li><Link><IoWallet /> Payment History</Link></li>
-                    <li><Link><FaShoppingCart /> My Cart</Link></li>
+                    <li><NavLink to="/dashboard/home"><AiFillHome /> User Home</NavLink></li>
+                    <li><NavLink to="/dashboard/reservation"><AiFillCalendar /> Reservation</NavLink></li>
+                    <li><NavLink to="/dashboard/payhistory"><IoWallet /> Payment History</NavLink></li>
+                    <li><NavLink to="/dashboard/mycart"><FaShoppingCart /> My Cart</NavLink></li>
                     <div className="divider"></div>
                     <li ><Link to='/'><AiFillHome /> Home</Link></li>
                     <li ><Link to='/menu'><AiOutlineMenu/> Menu</Link></li>
