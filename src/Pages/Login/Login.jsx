@@ -77,8 +77,9 @@ const Login = () => {
                                 <LoadCanvasTemplate />
                                 <input onBlur={handleCaptcha} type="text" name="captcha" placeholder="Enter captcha above" className="input input-bordered" />
                             </div>
+                            {/* ToDo : Button disable option off for development */}
                             <div className="form-control mt-6">
-                                <button disabled={disabled} className="btn btn-primary">Login</button>
+                                <button disabled={false} className="btn btn-primary">Login</button>
                             </div>
                             <div className="form-control">
                                 <p>
