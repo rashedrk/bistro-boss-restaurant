@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
+import SocialLogin from '../../Components/SocialLogin/Sociallogin';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -87,7 +88,10 @@ const Login = () => {
                                 </p>
                             </div>
                         </form>
-
+                        <div className="divider"></div>
+                        <div className="text-center mb-3">
+                            <SocialLogin />
+                        </div>
                     </div>
                 </div>
             </div>

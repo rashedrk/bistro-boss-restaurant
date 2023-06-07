@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Components/SocialLogin/Sociallogin";
 
 const Register = () => {
     const navigate = useNavigate();
-    const { signup, updateUserProfile,logout } = useContext(AuthContext);
+    const { signup, updateUserProfile, logout } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         signup(data.email, data.password)
@@ -16,17 +17,29 @@ const Register = () => {
                 console.log(user);
                 updateUserProfile(data.name, data.photoUrl)
                     .then(() => {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'User successfully Registered',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        logout()
-                            .then(() => navigate('/login'))
-                            .catch(err => console.log(err))
-
+                        const user = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json"
+                            },
+                            body: JSON.stringify(user)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User successfully Registered',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    logout()
+                                        .then(() => navigate('/login'))
+                                        .catch(err => console.log(err))
+                                }
+                            })
                     })
             })
             .catch(err => console.log(err.message))
@@ -87,7 +100,10 @@ const Register = () => {
                                 <p><small>already have account? <Link to="/login">Login</Link></small></p>
                             </div>
                         </form>
-
+                        <div className="divider"></div>
+                        <div className="text-center mb-3">
+                            <SocialLogin />
+                        </div>
                     </div>
                 </div>
             </div>
