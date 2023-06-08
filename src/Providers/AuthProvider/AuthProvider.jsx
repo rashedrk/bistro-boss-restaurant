@@ -20,11 +20,12 @@ const AuthProvider = ({children}) => {
                 .then(data => {
                     localStorage.setItem('access_token',  data.data.token)
                     // console.log(data.data.token);
+                    setLoading(false);
                 })
             } else {
                 localStorage.removeItem('access_token')
             }
-            setLoading(false);
+            
         })
         return () => unsubscribe();
     },[]);
