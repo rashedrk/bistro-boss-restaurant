@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
 
 
-const PrivateRoute = ({children}) => {
+const AdminRoute = ({children}) => {
     const {user,loading} = useAuth();
     const [isAdmin, isAdminLoading] = useAdmin();
     const location = useLocation();
@@ -14,7 +14,7 @@ const PrivateRoute = ({children}) => {
         return children;
     }
 
-    return <Navigate to="/login" state={{from:location}}></Navigate>
+    return <Navigate to="/" state={{from:location}}></Navigate>
 };
 
-export default PrivateRoute;
+export default AdminRoute;
